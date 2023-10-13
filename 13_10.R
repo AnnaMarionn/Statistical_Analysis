@@ -1,4 +1,6 @@
 #student survey answers
+#cartella con dataset e script-> read.table("StuDataset.csv",   header=T, sep=",")
+#da recuperare
 
 str(stud.df)
 
@@ -58,3 +60,51 @@ stud.df$km_travel[idx[9]] <- 2
 #then let's change it in numeric
 
 stud.df$km_travel <- as.numeric(stud.df$km_travel)
+
+#knowledge
+as.factor(stud.df$stats_know)
+stud.df$know <- factor(stud.df$know, levels= c(1,2,3,4,5))
+stud.df$stats_know #to check
+
+#hours of studying
+
+stud.df$hours_stud <- as.numeric(stud.df$hours_stud)
+
+#when u change the dataframe u can't undo it
+
+#knowledge R
+stud.df$use_R
+class(stud.df$use_R)
+
+ifelse(stud.df$use_R=="Yes", TRUE, FALSE)
+stud.df$use_R <- ifelse(stud.df$use_R==Yes, TRUE, FALSE)
+stud.df$use_R
+
+#finish cleaning
+#write.csv()
+
+write.table(x=stud.df, file="stud_data_clean.csv")
+summary (stud.df)
+
+#method of travel: we want it to be a factor
+
+stud.df$travel <- as.factor(stud.df$travel)
+
+#exercise:
+# how many stud for country? function table(sted.df$country) to get the abs frequency
+
+table()/nrow(stud.df)
+round(table(stud.df$)/nrow(stud.df), 2)
+
+#most used way of transportation?
+
+which.max(table(stud.df$travel))
+table (stud.df$travel)
+# mean distance traveled by walking and by train?
+# filtering
+mean(stud.df$km_travel[stud.df$km_travel == "walk"])
+mean(stud.df$km_travel[stud.df$km_travel == "train"])
+
+aggregate(x=stud.df$km_travel, by=list((Way=stud.df$travel), FUN= mean))
+
+          
