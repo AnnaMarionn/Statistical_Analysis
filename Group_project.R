@@ -1,6 +1,6 @@
           ## importing the dataset
 getwd()   ##to get the working directory currently used (Project folder)
-
+          ## for me: "C:/Users/annam/Desktop/unibo/stat/Statistics_R_project"
           ## To set working directory:
           ## setwd("C://Users/annam/Desktop/unibo/stat/Statistics_R_project")
 
