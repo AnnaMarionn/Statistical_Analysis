@@ -18,6 +18,7 @@ SolarDataset <- read.csv("DatasetFinale.csv", sep=";")
 spec(SolarDataset)
 # "Errore in spec(SolarDataset) : inherits(x, "tbl_df") non è TRUE"
 
+#another way to import the dataset is using the function read.table()
 read.table("DatasetFinale.csv", header = T, sep = ",", stringsAsFactors = T)
 
         ##but str works
